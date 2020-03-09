@@ -5,10 +5,12 @@ function formatQueryParams(params) {
   }
 
   function displayResults(responseJson) {
+    $('ul').empty();
+
     console.log(responseJson);
     for (let i = 0; i < responseJson.length; i++){
         console.log(responseJson[i]);
-      $('#repo').append(
+      $('ul').append(
         `<li><h3><a href="${responseJson[i].name}">${responseJson[i].url}</a></h3>
         </li>`
       )};
@@ -21,8 +23,6 @@ function getRepo(user) {
       sort: "created",
       direction: "asc"
     };
-    $('#results').empty();
-
     const queryString = formatQueryParams(params);
     const url =  'https://api.github.com/users/' + user + '/repos' + '?' + queryString;
         fetch(url)
