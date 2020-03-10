@@ -11,7 +11,7 @@ function formatQueryParams(params) {
     for (let i = 0; i < responseJson.length; i++){
         console.log(responseJson[i]);
       $('ul').append(
-        `<li><h3><a href="${responseJson[i].name}">${responseJson[i].url}</a></h3>
+        `<li><h3><a href="${responseJson[i].html_url}">Name: ${responseJson[i].name} <br> </a></h3>
         </li>`
       )};
     //display the results section  
